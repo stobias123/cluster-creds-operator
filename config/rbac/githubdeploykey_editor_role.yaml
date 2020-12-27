@@ -1,0 +1,24 @@
+# permissions for end users to edit githubdeploykeys.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: githubdeploykey-editor-role
+rules:
+- apiGroups:
+  - credential.github.com
+  resources:
+  - githubdeploykeys
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - credential.github.com
+  resources:
+  - githubdeploykeys/status
+  verbs:
+  - get

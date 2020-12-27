@@ -1,0 +1,20 @@
+# permissions for end users to view githubdeploykeys.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: githubdeploykey-viewer-role
+rules:
+- apiGroups:
+  - credential.github.com
+  resources:
+  - githubdeploykeys
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - credential.github.com
+  resources:
+  - githubdeploykeys/status
+  verbs:
+  - get
